@@ -24,7 +24,6 @@ public class Utilisateur {
     public Utilisateur() {
 	}
     
-    
 	/**
 	 * @param noUtilisateur
 	 * @param pseudo
@@ -54,10 +53,6 @@ public class Utilisateur {
 		this.credit = credit;
 		this.administrateur = administrateur;
 	}
-	
-
-	
-	
 	
 	
 

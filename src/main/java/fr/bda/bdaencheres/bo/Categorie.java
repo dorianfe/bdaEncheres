@@ -15,7 +15,6 @@ public class Categorie {
 		
 	}
 
-
 	public int getNoCategorie() {
 		return noCategorie;
 	}
@@ -28,19 +27,16 @@ public class Categorie {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-    
 
 	@Override
 	public String toString() {
 		return "Categorie [noCategorie=" + noCategorie + ", libelle=" + libelle + "]";
 	}
 
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(libelle, noCategorie);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
