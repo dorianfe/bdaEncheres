@@ -3,11 +3,14 @@ package fr.bda.bdaencheres.bo;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Utilisateur {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int noUtilisateur;
     private String pseudo;
     private String nom;
@@ -26,7 +29,6 @@ public class Utilisateur {
     
     
 	/**
-	 * @param noUtilisateur
 	 * @param pseudo
 	 * @param nom
 	 * @param prenom
@@ -39,9 +41,9 @@ public class Utilisateur {
 	 * @param credit
 	 * @param administrateur
 	 */
-	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone,
 			String rue, String codePostal, String ville, String motDePasse, int credit, boolean administrateur) {
-		this.noUtilisateur = noUtilisateur;
+		
 		this.pseudo = pseudo;
 		this.nom = nom;
 		this.prenom = prenom;
