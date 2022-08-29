@@ -13,7 +13,7 @@ public class ArticleVendu {
     private int prixVente;
     private int etatVente;
 
-    private Retrait retrait;
+    
     private Categorie categorie;
     private Utilisateur utilisateur;
 
