@@ -131,16 +131,17 @@ public class ArticleVendu {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ArticleVendu)) return false;
-        ArticleVendu that = (ArticleVendu) o;
-        return getDateDebutEncheres() == that.getDateDebutEncheres() && getDateFinEncheres() == that.getDateFinEncheres() && getMiseAPrix() == that.getMiseAPrix() && getPrixVente() == that.getPrixVente() && getEtatVente() == that.getEtatVente() && getNoArticle().equals(that.getNoArticle()) && getNomArticle().equals(that.getNomArticle()) && getDescription().equals(that.getDescription());
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getNoArticle(), getNomArticle(), getDescription(), getDateDebutEncheres(), getDateFinEncheres(), getMiseAPrix(), getPrixVente(), getEtatVente());
-    }
-}
+     @Override
+     public boolean equals(Object o) {
+         if (this == o) return true;
+         if (!(o instanceof ArticleVendu)) return false;
+         ArticleVendu that = (ArticleVendu) o;
+         return getNoArticle() == that.getNoArticle() && getDateDebutEncheres() == that.getDateDebutEncheres() && getDateFinEncheres() == that.getDateFinEncheres() && getMiseAPrix() == that.getMiseAPrix() && getPrixVente() == that.getPrixVente() && getEtatVente() == that.getEtatVente() && getNomArticle().equals(that.getNomArticle()) && getDescription().equals(that.getDescription()) && categorie.equals(that.categorie) && utilisateur.equals(that.utilisateur);
+     }
+
+     @Override
+     public int hashCode() {
+         return Objects.hash(getNoArticle(), getNomArticle(), getDescription(), getDateDebutEncheres(), getDateFinEncheres(), getMiseAPrix(), getPrixVente(), getEtatVente(), categorie, utilisateur);
+     }
+ }
