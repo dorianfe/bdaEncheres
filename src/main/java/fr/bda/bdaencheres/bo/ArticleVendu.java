@@ -1,6 +1,8 @@
 package fr.bda.bdaencheres.bo;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
  @Entity
 public class ArticleVendu {
@@ -12,22 +14,22 @@ public class ArticleVendu {
 
     @Lob
     private String description;
-    private int dateDebutEncheres;
-    private int dateFinEncheres;
+    private LocalDate dateDebutEncheres;
+    private LocalDate dateFinEncheres;
     private int miseAPrix;
     private int prixVente;
-    private int etatVente;
+    private String etatVente;
 
     @ManyToOne
     private Categorie categorie;
 
-    @OneToOne
+    @ManyToOne
     private Utilisateur utilisateur;
 
      public ArticleVendu() {
     }
 
-     public ArticleVendu(String nomArticle, String description, int dateDebutEncheres, int dateFinEncheres, int miseAPrix, int prixVente, int etatVente, Categorie categorie, Utilisateur utilisateur) {
+     public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente, Categorie categorie, Utilisateur utilisateur) {
          this.nomArticle = nomArticle;
          this.description = description;
          this.dateDebutEncheres = dateDebutEncheres;
@@ -39,7 +41,7 @@ public class ArticleVendu {
          this.utilisateur = utilisateur;
      }
 
-     public ArticleVendu(int noArticle, String nomArticle, String description, int dateDebutEncheres, int dateFinEncheres, int miseAPrix, int prixVente, int etatVente, Categorie categorie, Utilisateur utilisateur) {
+     public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente, Categorie categorie, Utilisateur utilisateur) {
          this.noArticle = noArticle;
          this.nomArticle = nomArticle;
          this.description = description;
@@ -76,23 +78,48 @@ public class ArticleVendu {
         this.description = description;
     }
 
-    public int getDateDebutEncheres() {
-        return dateDebutEncheres;
-    }
 
-    public void setDateDebutEncheres(int dateDebutEncheres) {
-        this.dateDebutEncheres = dateDebutEncheres;
-    }
+     public LocalDate getDateDebutEncheres() {
+         return dateDebutEncheres;
+     }
 
-    public int getDateFinEncheres() {
-        return dateFinEncheres;
-    }
+     public void setDateDebutEncheres(LocalDate dateDebutEncheres) {
+         this.dateDebutEncheres = dateDebutEncheres;
+     }
 
-    public void setDateFinEncheres(int dateFinEncheres) {
-        this.dateFinEncheres = dateFinEncheres;
-    }
+     public LocalDate getDateFinEncheres() {
+         return dateFinEncheres;
+     }
 
-    public int getMiseAPrix() {
+     public void setDateFinEncheres(LocalDate dateFinEncheres) {
+         this.dateFinEncheres = dateFinEncheres;
+     }
+
+     public String getEtatVente() {
+         return etatVente;
+     }
+
+     public void setEtatVente(String etatVente) {
+         this.etatVente = etatVente;
+     }
+
+     public Categorie getCategorie() {
+         return categorie;
+     }
+
+     public void setCategorie(Categorie categorie) {
+         this.categorie = categorie;
+     }
+
+     public Utilisateur getUtilisateur() {
+         return utilisateur;
+     }
+
+     public void setUtilisateur(Utilisateur utilisateur) {
+         this.utilisateur = utilisateur;
+     }
+
+     public int getMiseAPrix() {
         return miseAPrix;
     }
 
@@ -108,15 +135,6 @@ public class ArticleVendu {
         this.prixVente = prixVente;
     }
 
-    public int getEtatVente() {
-        return etatVente;
-    }
-
-    public void setEtatVente(int etatVente) {
-        this.etatVente = etatVente;
-    }
-
-
     @Override
     public String toString() {
         return "ArticleVendu{" +
@@ -130,7 +148,6 @@ public class ArticleVendu {
                 ", etatVente=" + etatVente +
                 '}';
     }
-
 
      @Override
      public boolean equals(Object o) {

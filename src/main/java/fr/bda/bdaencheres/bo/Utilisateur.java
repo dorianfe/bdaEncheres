@@ -38,10 +38,9 @@ public class Utilisateur {
 	 * @param ville
 	 * @param motDePasse
 	 * @param credit
-	 * @param administrateur
 	 */
 	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone,
-			String rue, String codePostal, String ville, String motDePasse, int credit, boolean administrateur) {
+			String rue, String codePostal, String ville, String motDePasse, int credit) {
 		
 		this.pseudo = pseudo;
 		this.nom = nom;
@@ -53,7 +52,7 @@ public class Utilisateur {
 		this.ville = ville;
 		this.motDePasse = motDePasse;
 		this.credit = credit;
-		this.administrateur = administrateur;
+		this.administrateur = false;
 	}
 	
 	

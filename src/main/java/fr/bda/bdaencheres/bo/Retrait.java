@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 @Entity
 public class Retrait {
@@ -13,6 +14,7 @@ public class Retrait {
     private String ville;
     
     @OneToOne(cascade = CascadeType.ALL)
+	@Id
     private ArticleVendu article;
 	
     
