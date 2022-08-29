@@ -1,6 +1,6 @@
 package fr.bda.bdaencheres.bo;
 
-public class Utlisateur {
+public class Utilisateur {
     //noUtilisateur
     //pseudo
     //nom
