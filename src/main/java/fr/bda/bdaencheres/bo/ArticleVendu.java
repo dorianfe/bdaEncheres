@@ -1,11 +1,16 @@
 package fr.bda.bdaencheres.bo;
 
+import javax.persistence.*;
 import java.util.Objects;
-
+ @Entity
 public class ArticleVendu {
 
-    private String noArticle;
+     @Id
+     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int noArticle;
     private String nomArticle;
+
+    @Lob
     private String description;
     private int dateDebutEncheres;
     private int dateFinEncheres;
@@ -13,18 +18,45 @@ public class ArticleVendu {
     private int prixVente;
     private int etatVente;
 
-    
+    @ManyToOne
     private Categorie categorie;
+
+    @OneToOne
     private Utilisateur utilisateur;
 
-    public ArticleVendu() {
+     public ArticleVendu() {
     }
 
-    public String getNoArticle() {
+     public ArticleVendu(String nomArticle, String description, int dateDebutEncheres, int dateFinEncheres, int miseAPrix, int prixVente, int etatVente, Categorie categorie, Utilisateur utilisateur) {
+         this.nomArticle = nomArticle;
+         this.description = description;
+         this.dateDebutEncheres = dateDebutEncheres;
+         this.dateFinEncheres = dateFinEncheres;
+         this.miseAPrix = miseAPrix;
+         this.prixVente = prixVente;
+         this.etatVente = etatVente;
+         this.categorie = categorie;
+         this.utilisateur = utilisateur;
+     }
+
+     public ArticleVendu(int noArticle, String nomArticle, String description, int dateDebutEncheres, int dateFinEncheres, int miseAPrix, int prixVente, int etatVente, Categorie categorie, Utilisateur utilisateur) {
+         this.noArticle = noArticle;
+         this.nomArticle = nomArticle;
+         this.description = description;
+         this.dateDebutEncheres = dateDebutEncheres;
+         this.dateFinEncheres = dateFinEncheres;
+         this.miseAPrix = miseAPrix;
+         this.prixVente = prixVente;
+         this.etatVente = etatVente;
+         this.categorie = categorie;
+         this.utilisateur = utilisateur;
+     }
+
+     public int getNoArticle() {
         return noArticle;
     }
 
-    public void setNoArticle(String noArticle) {
+    public void setNoArticle(int noArticle) {
         this.noArticle = noArticle;
     }
 
