@@ -2,7 +2,6 @@ package fr.bda.bdaencheres.bo;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
  @Entity
 public class ArticleVendu {
@@ -20,16 +19,18 @@ public class ArticleVendu {
     private int prixVente;
     private String etatVente;
 
+
+
     @ManyToOne
     private Categorie categorie;
 
     @ManyToOne
-    private Utilisateur utilisateur;
+    private Utilisateur vendeur;
 
      public ArticleVendu() {
     }
 
-     public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente, Categorie categorie, Utilisateur utilisateur) {
+     public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente, Categorie categorie, Utilisateur vendeur) {
          this.nomArticle = nomArticle;
          this.description = description;
          this.dateDebutEncheres = dateDebutEncheres;
@@ -38,10 +39,10 @@ public class ArticleVendu {
          this.prixVente = prixVente;
          this.etatVente = etatVente;
          this.categorie = categorie;
-         this.utilisateur = utilisateur;
+         this.vendeur = vendeur;
      }
 
-     public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente, Categorie categorie, Utilisateur utilisateur) {
+     public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente, Categorie categorie, Utilisateur vendeur) {
          this.noArticle = noArticle;
          this.nomArticle = nomArticle;
          this.description = description;
@@ -51,7 +52,7 @@ public class ArticleVendu {
          this.prixVente = prixVente;
          this.etatVente = etatVente;
          this.categorie = categorie;
-         this.utilisateur = utilisateur;
+         this.vendeur = vendeur;
      }
 
      public int getNoArticle() {
@@ -111,12 +112,12 @@ public class ArticleVendu {
          this.categorie = categorie;
      }
 
-     public Utilisateur getUtilisateur() {
-         return utilisateur;
+     public Utilisateur getVendeur() {
+         return vendeur;
      }
 
-     public void setUtilisateur(Utilisateur utilisateur) {
-         this.utilisateur = utilisateur;
+     public void setVendeur(Utilisateur utilisateur) {
+         this.vendeur = utilisateur;
      }
 
      public int getMiseAPrix() {
@@ -154,11 +155,11 @@ public class ArticleVendu {
          if (this == o) return true;
          if (!(o instanceof ArticleVendu)) return false;
          ArticleVendu that = (ArticleVendu) o;
-         return getNoArticle() == that.getNoArticle() && getDateDebutEncheres() == that.getDateDebutEncheres() && getDateFinEncheres() == that.getDateFinEncheres() && getMiseAPrix() == that.getMiseAPrix() && getPrixVente() == that.getPrixVente() && getEtatVente() == that.getEtatVente() && getNomArticle().equals(that.getNomArticle()) && getDescription().equals(that.getDescription()) && categorie.equals(that.categorie) && utilisateur.equals(that.utilisateur);
+         return getNoArticle() == that.getNoArticle() && getDateDebutEncheres() == that.getDateDebutEncheres() && getDateFinEncheres() == that.getDateFinEncheres() && getMiseAPrix() == that.getMiseAPrix() && getPrixVente() == that.getPrixVente() && getEtatVente() == that.getEtatVente() && getNomArticle().equals(that.getNomArticle()) && getDescription().equals(that.getDescription()) && categorie.equals(that.categorie) && vendeur.equals(that.vendeur);
      }
 
      @Override
      public int hashCode() {
-         return Objects.hash(getNoArticle(), getNomArticle(), getDescription(), getDateDebutEncheres(), getDateFinEncheres(), getMiseAPrix(), getPrixVente(), getEtatVente(), categorie, utilisateur);
+         return Objects.hash(getNoArticle(), getNomArticle(), getDescription(), getDateDebutEncheres(), getDateFinEncheres(), getMiseAPrix(), getPrixVente(), getEtatVente(), categorie, vendeur);
      }
  }
