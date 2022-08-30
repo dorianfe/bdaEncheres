@@ -1,5 +1,7 @@
 package fr.bda.bdaencheres;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -10,13 +12,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.bda.bdaencheres.bll.GestionUtilisateur;
 import fr.bda.bdaencheres.bo.Utilisateur;
 
 @SpringBootTest
 @ComponentScan({"fr.bda.bdaencheres.bll", "fr.bda.bdaencheres.dal" })
-class testBll {
+class testBllAntoine {
 	
 	@Autowired
 	private GestionUtilisateur beangGestionUtilisateur;
@@ -60,7 +63,7 @@ class testBll {
 		beangGestionArticle.ajouterArticle(art);
 		beangGestionArticle.ajouterArticle(art2);
 
-		List<ArticleVendu> articles = beangGestionArticle.listerArticles();
+		List<ArticleVendu> articles = beangGestionArticle.listeArticles();
 		if (articles.size() > 1) {
 			for(ArticleVendu article: articles){
 				System.out.println(article);
@@ -69,4 +72,19 @@ class testBll {
 			System.out.println(articles);
 		}
 	}
+	
+	@Test
+	void testGestionUtilisateur() {
+		Utilisateur user1 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
+		Utilisateur user2 = new Utilisateur("bella", "bella", "bella", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
+		beangGestionUtilisateur.ajouterUtilisateur(user1);
+		beangGestionUtilisateur.ajouterUtilisateur(user2);
+		
+		
+		System.out.println(beangGestionUtilisateur.listerUtilisateurs());
+	}
+	
+	
+	
+	
 }
