@@ -1,6 +1,5 @@
 package fr.bda.bdaencheres.bll;
 
-import fr.bda.bdaencheres.bo.ArticleVendu;
 import fr.bda.bdaencheres.bo.Utilisateur;
 import fr.bda.bdaencheres.dal.UtilisateurDAO;
 import org.springframework.beans.factory.annotation.Autowired;
