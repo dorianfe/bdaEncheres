@@ -2,8 +2,12 @@ package fr.bda.bdaencheres;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
+import fr.bda.bdaencheres.bll.GestionArticle;
+import fr.bda.bdaencheres.bo.ArticleVendu;
+import fr.bda.bdaencheres.bo.Categorie;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +23,8 @@ class testBll {
 	
 	@Autowired
 	private GestionUtilisateur beangGestionUtilisateur;
-	
+	@Autowired
+	private GestionArticle beangGestionArticle;
 	
 	
 	@Test
@@ -42,4 +47,26 @@ class testBll {
 		
 	}
 
+	@Test
+	@Transactional
+	void testArticle() {
+		Utilisateur user1 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
+		Categorie cat = new Categorie();
+		cat.setLibelle("SF");
+		ArticleVendu art = new ArticleVendu("gourde", "permet de boire", LocalDate.of(2020, 1, 8), LocalDate.of(2020, 4, 8), 10, 0, "prepa vente", cat, user1);
+		ArticleVendu art2 = new ArticleVendu("bout", "boire", null, null, 10, 0, "en cours", cat, user1);
+
+
+		beangGestionArticle.ajouterArticle(art);
+		beangGestionArticle.ajouterArticle(art2);
+
+		List<ArticleVendu> articles = beangGestionArticle.listeArticles();
+		if (articles.size() > 1) {
+			for(ArticleVendu article: articles){
+				System.out.println(article);
+			}
+		}else {
+			System.out.println(articles);
+		}
+	}
 }
