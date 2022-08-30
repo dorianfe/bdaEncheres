@@ -25,7 +25,7 @@ public class Utilisateur {
     private String ville;
     private String motDePasse;
     private int credit;
-    private boolean administrateur;
+    private boolean administrateur = false;
     
     
     // liste des articles mis en vente par l'utilisateur
@@ -37,9 +37,42 @@ public class Utilisateur {
     private List<Enchere> listeEncheres;
     
     public Utilisateur() {
+
 	}
     
 	
+
+	/**
+	 * @param noUtilisateur
+	 * @param pseudo
+	 * @param nom
+	 * @param prenom
+	 * @param email
+	 * @param telephone
+	 * @param rue
+	 * @param codePostal
+	 * @param ville
+	 * @param motDePasse
+	 * @param credit
+	 */
+	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
+			String rue, String codePostal, String ville, String motDePasse, int credit) {
+		super();
+		this.noUtilisateur = noUtilisateur;
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.motDePasse = motDePasse;
+		this.credit = credit;
+
+	}
+
+
 
 	/**
 	 * @param pseudo
@@ -66,7 +99,6 @@ public class Utilisateur {
 		this.ville = ville;
 		this.motDePasse = motDePasse;
 		this.credit = credit;
-		this.administrateur = false;
 	}
 	
 	
