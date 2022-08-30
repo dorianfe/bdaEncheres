@@ -28,7 +28,6 @@ class testBll {
 	
 	
 	@Test
-	@Transactional
 	void test() {
 		Utilisateur user1 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
 		Utilisateur user2 = new Utilisateur("bella", "bella", "bella", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
@@ -48,13 +47,17 @@ class testBll {
 	}
 
 	@Test
-	@Transactional
 	void testArticle() {
-		Utilisateur user1 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
+		Utilisateur user3 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
+		beangGestionUtilisateur.ajouterUtilisateur(user3);
+
+
 		Categorie cat = new Categorie();
+		Categorie cat2 = new Categorie();
 		cat.setLibelle("SF");
-		ArticleVendu art = new ArticleVendu("gourde", "permet de boire", LocalDate.of(2020, 1, 8), LocalDate.of(2020, 4, 8), 10, 0, "prepa vente", cat, user1);
-		ArticleVendu art2 = new ArticleVendu("bout", "boire", null, null, 10, 0, "en cours", cat, user1);
+		cat2.setLibelle("Sport");
+		ArticleVendu art = new ArticleVendu("gourde", "permet de boire", LocalDate.of(2020, 1, 8), LocalDate.of(2020, 4, 8), 10, 0, "prepa vente", cat, user3);
+		ArticleVendu art2 = new ArticleVendu("bout", "boire", null, null, 10, 0, "en cours", cat2, user3);
 
 
 		beangGestionArticle.ajouterArticle(art);

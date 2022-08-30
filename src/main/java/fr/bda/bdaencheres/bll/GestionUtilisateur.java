@@ -11,7 +11,7 @@ import java.util.List;
 public class GestionUtilisateur {
 
     @Autowired
-    UtilisateurDAO dao;
+    public UtilisateurDAO dao;
 
     public List<Utilisateur> listerUtilisateurs() {
 

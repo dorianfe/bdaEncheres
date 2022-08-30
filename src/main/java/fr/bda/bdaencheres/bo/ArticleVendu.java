@@ -21,10 +21,10 @@ public class ArticleVendu {
 
 
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Categorie categorie;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Utilisateur vendeur;
 
      public ArticleVendu() {
