@@ -17,5 +17,9 @@ public class GestionUtilisateur {
 
         return dao.findAll();
     }
+    
+    public void ajouterUtilisateur(Utilisateur utilisateur) {
+    	dao.save(utilisateur);
+    }
 
 }
