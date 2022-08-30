@@ -4,17 +4,20 @@ import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 @Entity
 public class Retrait {
-	
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int noRetrait;
     private String rue;
     private String codePostal;
     private String ville;
     
     @OneToOne(cascade = CascadeType.ALL)
-	@Id
     private ArticleVendu article;
 	
     
@@ -40,6 +43,16 @@ public class Retrait {
 	}
 
 
+
+
+	public int getNoRetrait() {
+		return noRetrait;
+	}
+
+
+	public void setNoRetrait(int noRetrait) {
+		this.noRetrait = noRetrait;
+	}
 
 
 	public String getRue() {
