@@ -1,11 +1,14 @@
 package fr.bda.bdaencheres.bo;
 
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Utilisateur {
@@ -24,9 +27,20 @@ public class Utilisateur {
     private int credit;
     private boolean administrateur;
     
+    
+    // liste des articles mis en vente par l'utilisateur
+    @OneToMany //(cascade = CascadeType.REMOVE)
+    private List<ArticleVendu> listeArticles;
+    
+    // liste des encheres faites par l'utilisateur
+    @OneToMany
+    private List<Enchere> listeEncheres;
+    
     public Utilisateur() {
 	}
     
+	
+
 	/**
 	 * @param pseudo
 	 * @param nom
@@ -141,6 +155,22 @@ public class Utilisateur {
 		this.administrateur = administrateur;
 	}
 	
+	public List<ArticleVendu> getListeArticles() {
+		return listeArticles;
+	}
+	public void setListeArticles(List<ArticleVendu> listeArticles) {
+		this.listeArticles = listeArticles;
+	}
+
+	public List<Enchere> getListeEncheres() {
+		return listeEncheres;
+	}
+	public void setListeEncheres(List<Enchere> listeEncheres) {
+		this.listeEncheres = listeEncheres;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Utilisateur [noUtilisateur=" + noUtilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
