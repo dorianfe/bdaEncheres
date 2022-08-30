@@ -8,6 +8,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ArticleVenduDAO extends JpaRepository<ArticleVendu, Integer> {
 	
+
+
+
+
 	List<ArticleVendu> findByOrderByPrixVenteAsc();
 	List<ArticleVendu> findByOrderByPrixVenteDesc();
 	List<ArticleVendu> findByOrderByEtatVenteAsc();

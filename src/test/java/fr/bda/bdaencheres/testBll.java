@@ -1,7 +1,5 @@
 package fr.bda.bdaencheres;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -12,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.transaction.annotation.Transactional;
 
 import fr.bda.bdaencheres.bll.GestionUtilisateur;
 import fr.bda.bdaencheres.bo.Utilisateur;
@@ -63,7 +60,7 @@ class testBll {
 		beangGestionArticle.ajouterArticle(art);
 		beangGestionArticle.ajouterArticle(art2);
 
-		List<ArticleVendu> articles = beangGestionArticle.listeArticles();
+		List<ArticleVendu> articles = beangGestionArticle.listerArticles();
 		if (articles.size() > 1) {
 			for(ArticleVendu article: articles){
 				System.out.println(article);
