@@ -2,6 +2,7 @@ package fr.bda.bdaencheres.bo;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
  @Entity
 public class ArticleVendu {
@@ -17,9 +18,10 @@ public class ArticleVendu {
     private LocalDate dateFinEncheres;
     private int miseAPrix;
     private int prixVente;
-    private String etatVente;
 
+    private enum ETATVENTE {PAS_COMMENCEE, EN_COURS, TERMINEE};
 
+    private ETATVENTE etatVente;
 
     @ManyToOne(cascade=CascadeType.MERGE)
     private Categorie categorie;
@@ -30,19 +32,25 @@ public class ArticleVendu {
      public ArticleVendu() {
     }
 
-     public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente, Categorie categorie, Utilisateur vendeur) {
+     public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, Categorie categorie, Utilisateur vendeur) {
          this.nomArticle = nomArticle;
          this.description = description;
          this.dateDebutEncheres = dateDebutEncheres;
          this.dateFinEncheres = dateFinEncheres;
          this.miseAPrix = miseAPrix;
          this.prixVente = prixVente;
-         this.etatVente = etatVente;
+         if (LocalDate.now().isAfter(dateDebutEncheres)){
+             this.etatVente = ETATVENTE.PAS_COMMENCEE;
+         } else if (dateFinEncheres.isAfter(LocalDate.now())) {
+             this.etatVente = ETATVENTE.EN_COURS;
+         } else {
+             this.etatVente = ETATVENTE.TERMINEE;
+         }
          this.categorie = categorie;
          this.vendeur = vendeur;
      }
 
-     public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente, Categorie categorie, Utilisateur vendeur) {
+     public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, Categorie categorie, Utilisateur vendeur) {
          this.noArticle = noArticle;
          this.nomArticle = nomArticle;
          this.description = description;
@@ -50,8 +58,13 @@ public class ArticleVendu {
          this.dateFinEncheres = dateFinEncheres;
          this.miseAPrix = miseAPrix;
          this.prixVente = prixVente;
-         this.etatVente = etatVente;
-         this.categorie = categorie;
+         if (LocalDate.now().isAfter(dateDebutEncheres)){
+             this.etatVente = ETATVENTE.PAS_COMMENCEE;
+         } else if (dateFinEncheres.isAfter(LocalDate.now())) {
+             this.etatVente = ETATVENTE.EN_COURS;
+         } else {
+             this.etatVente = ETATVENTE.TERMINEE;
+         }         this.categorie = categorie;
          this.vendeur = vendeur;
      }
 
@@ -96,11 +109,11 @@ public class ArticleVendu {
          this.dateFinEncheres = dateFinEncheres;
      }
 
-     public String getEtatVente() {
+     public ETATVENTE getEtatVente() {
          return etatVente;
      }
 
-     public void setEtatVente(String etatVente) {
+     public void setEtatVente(ETATVENTE etatVente) {
          this.etatVente = etatVente;
      }
 
