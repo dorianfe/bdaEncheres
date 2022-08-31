@@ -32,6 +32,7 @@ public class GestionUtilisateur {
         return dao.findAll();
     }
     
+    
     public Utilisateur chercherUtilisateurParNoUtilisateur(int noUtilisateur) {
     	return dao.getOne(noUtilisateur);
     }

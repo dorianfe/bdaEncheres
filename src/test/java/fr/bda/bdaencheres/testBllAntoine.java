@@ -75,12 +75,12 @@ class testBllAntoine {
 //	
 	@Test
 	void testGestionUtilisateur() {
-		Utilisateur user1 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
+		Utilisateur user1 = new Utilisateur(6,"gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
 		Utilisateur user2 = new Utilisateur("bella", "bella", "bella", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
-		beangGestionUtilisateur.ajouterUtilisateur(user1);
-		beangGestionUtilisateur.ajouterUtilisateur(user2);
+//		beangGestionUtilisateur.ajouterUtilisateur(user1);
+//		beangGestionUtilisateur.ajouterUtilisateur(user2);
 		
-		beangGestionUtilisateur.supprimerUtilisateur(user2);
+		beangGestionUtilisateur.supprimerUtilisateur(user1);
 	}
 	
 	
