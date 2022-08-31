@@ -27,52 +27,52 @@ class testBllAntoine {
 	private GestionArticle beangGestionArticle;
 	
 	
-	@Test
-	void test() {
-		Utilisateur user1 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
-		Utilisateur user2 = new Utilisateur("bella", "bella", "bella", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
-		beangGestionUtilisateur.ajouterUtilisateur(user1);
-		beangGestionUtilisateur.ajouterUtilisateur(user2);
-		
-		List<Utilisateur> utilisateurs = beangGestionUtilisateur.listerUtilisateurs();
-		if (utilisateurs.size()==1) {
-			System.out.println(utilisateurs);
-		}
-		else if (utilisateurs.size()>1) {
-			for (Utilisateur user : utilisateurs) {
-				System.out.println(user);
-			}
-		}
-		
-	}
-
-	@Test
-	void testArticle() {
-		Utilisateur user3 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
-		beangGestionUtilisateur.ajouterUtilisateur(user3);
-
-
-		Categorie cat = new Categorie();
-		Categorie cat2 = new Categorie();
-		cat.setLibelle("SF");
-		cat2.setLibelle("Sport");
-		ArticleVendu art = new ArticleVendu("gourde", "permet de boire", LocalDate.of(2020, 1, 8), LocalDate.of(2020, 4, 8), 10, 0, "prepa vente", cat, user3);
-		ArticleVendu art2 = new ArticleVendu("bout", "boire", null, null, 10, 0, "en cours", cat2, user3);
-
-
-		beangGestionArticle.ajouterArticle(art);
-		beangGestionArticle.ajouterArticle(art2);
-
-		List<ArticleVendu> articles = beangGestionArticle.listeArticles();
-		if (articles.size() > 1) {
-			for(ArticleVendu article: articles){
-				System.out.println(article);
-			}
-		}else {
-			System.out.println(articles);
-		}
-	}
-	
+//	@Test
+//	void test() {
+//		Utilisateur user1 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
+//		Utilisateur user2 = new Utilisateur("bella", "bella", "bella", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
+//		beangGestionUtilisateur.ajouterUtilisateur(user1);
+//		beangGestionUtilisateur.ajouterUtilisateur(user2);
+//		
+//		List<Utilisateur> utilisateurs = beangGestionUtilisateur.listerUtilisateurs();
+//		if (utilisateurs.size()==1) {
+//			System.out.println(utilisateurs);
+//		}
+//		else if (utilisateurs.size()>1) {
+//			for (Utilisateur user : utilisateurs) {
+//				System.out.println(user);
+//			}
+//		}
+//		
+//	}
+//
+//	@Test
+//	void testArticle() {
+//		Utilisateur user3 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
+//		beangGestionUtilisateur.ajouterUtilisateur(user3);
+//
+//
+//		Categorie cat = new Categorie();
+//		Categorie cat2 = new Categorie();
+//		cat.setLibelle("SF");
+//		cat2.setLibelle("Sport");
+//		ArticleVendu art = new ArticleVendu("gourde", "permet de boire", LocalDate.of(2020, 1, 8), LocalDate.of(2020, 4, 8), 10, 0, "prepa vente", cat, user3);
+//		ArticleVendu art2 = new ArticleVendu("bout", "boire", null, null, 10, 0, "en cours", cat2, user3);
+//
+//
+//		beangGestionArticle.ajouterArticle(art);
+//		beangGestionArticle.ajouterArticle(art2);
+//
+//		List<ArticleVendu> articles = beangGestionArticle.listeArticles();
+//		if (articles.size() > 1) {
+//			for(ArticleVendu article: articles){
+//				System.out.println(article);
+//			}
+//		}else {
+//			System.out.println(articles);
+//		}
+//	}
+//	
 	@Test
 	void testGestionUtilisateur() {
 		Utilisateur user1 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
@@ -80,8 +80,7 @@ class testBllAntoine {
 		beangGestionUtilisateur.ajouterUtilisateur(user1);
 		beangGestionUtilisateur.ajouterUtilisateur(user2);
 		
-		
-		System.out.println(beangGestionUtilisateur.listerUtilisateurs());
+		beangGestionUtilisateur.supprimerUtilisateur(user2);
 	}
 	
 	
