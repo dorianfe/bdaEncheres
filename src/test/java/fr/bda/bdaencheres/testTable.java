@@ -19,7 +19,7 @@ class testTable {
 		Utilisateur user2 = new Utilisateur("bella", "bella", "bella", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
 		
 		System.out.println(user1.toString());
-		System.out.println(user2.toString());
+		 System.out.println(user2.toString());
 	}
 	@Test
 	void testCategorie() {

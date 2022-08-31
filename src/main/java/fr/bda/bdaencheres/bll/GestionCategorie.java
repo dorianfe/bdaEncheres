@@ -14,13 +14,41 @@ public class GestionCategorie {
 	@Autowired
 	CategorieDAO dao;
 	
-	public List<Categorie> listerUtilisateurs() {
+	public List<Categorie> listerCategorie() {
 
-	        return dao.findAll();
+	         return dao.findAll();
+	    }
+
+	   
+	    public void ajouterCategorie(Categorie cat) {
+	    	dao.save(cat);
 	    }
 	    
-	    public void ajouterUtilisateur(Categorie cat) {
+	    public void modifierCategorie(Categorie cat) {
+	    	
 	    	dao.save(cat);
+	    }
+	    
+	    public void supprimmerCategorie(Categorie sup) {
+	    	
+	    	dao.delete(sup);
+	    }
+	    
+	    public List<Categorie> trier(String par){
+	    	
+	    	List<Categorie> liste = null;
+	    	
+	    	switch (par){
+	    	
+	    	case "NA" : liste = dao.findByOrderByNoCategorieAsc(); break;
+	    	case "ND" : liste = dao.findByOrderByNoCategorieDesc(); break;
+	    	case "LA" : liste = dao.findByOrderByLibelleAsc(); break;
+	    	case "LD" : liste = dao.findByOrderByLibelleDesc();break;
+	    		
+	    	}
+	    	
+	    	return liste;
+	    	
 	    }
 	
 

@@ -3,10 +3,13 @@ package fr.bda.bdaencheres.bo;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Categorie {
@@ -14,11 +17,22 @@ public class Categorie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int noCategorie;
     private String libelle;
-
     
+       
 	public Categorie() {
 		
+	 }
+
+	/**
+	 * @param noCategorie
+	 * @param libelle
+	 */
+	public Categorie(int noCategorie, String libelle) {
+		super();
+		this.noCategorie = noCategorie;
+		this.libelle = libelle;
 	}
+
 
 	public int getNoCategorie() {
 		return noCategorie;
