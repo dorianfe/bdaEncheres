@@ -16,7 +16,7 @@ public class GestionCategorie {
 	
 	public List<Categorie> listerCategorie() {
 
-	        return dao.findAll();
+	         return dao.findAll();
 	    }
 
 	   

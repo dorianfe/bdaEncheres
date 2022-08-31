@@ -21,7 +21,7 @@ public class ArticleVendu {
 
 
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade=CascadeType.MERGE)
     private Categorie categorie;
 
     @ManyToOne(cascade=CascadeType.MERGE)
