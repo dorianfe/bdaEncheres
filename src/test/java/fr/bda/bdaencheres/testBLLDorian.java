@@ -51,8 +51,8 @@ public class testBLLDorian {
         Categorie cat2 = new Categorie();
         cat.setLibelle("SF");
         cat2.setLibelle("Sport");
-        ArticleVendu art = new ArticleVendu("gourde", "permet de boire", LocalDate.of(2020, 1, 8), LocalDate.of(2020, 4, 8), 10, 0, "prepa vente", cat, user3);
-        ArticleVendu art2 = new ArticleVendu("bout", "boire", null, null, 10, 0, "en cours", cat2, user3);
+        ArticleVendu art = new ArticleVendu("gourde", "permet de boire", LocalDate.of(2020, 1, 8), LocalDate.of(2020, 4, 8), 10, 0, cat, user3);
+        ArticleVendu art2 = new ArticleVendu("bout", "boire", null, null, 10, 0, cat2, user3);
 
 
         beanGestionArticle.ajouterArticle(art);

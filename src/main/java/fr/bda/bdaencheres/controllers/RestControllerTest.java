@@ -23,14 +23,14 @@ public class RestControllerTest {
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
-
+//int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, Categorie categorie, Utilisateur vendeur
     @GetMapping(value = "/articles",produces ="application/json")
     public ArticleVendu articlesList(@RequestParam(value = "nameArticle", defaultValue = "bouteille") String nomArticle) {
         Categorie cat = new Categorie();
         cat.setLibelle("Categorie");
         Utilisateur user3 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
 
-        return new ArticleVendu((int)counter.incrementAndGet(), String.format(template, nomArticle), "description", LocalDate.of(2020, 1, 8),LocalDate.of(2020, 4, 8),10, 0, "prepa vente", cat, user3);
+        return new ArticleVendu((int)counter.incrementAndGet(), String.format(template, nomArticle), "description", LocalDate.of(2020, 1, 8),LocalDate.of(2020, 4, 8),10, 0, cat, user3);
     }
     @GetMapping(value = "/articles",produces ="application/rtf")
     public ArticleVendu articlesList1(@RequestParam(value = "nameArticle", defaultValue = "bouteille") String nomArticle) {
@@ -38,7 +38,7 @@ public class RestControllerTest {
         cat.setLibelle("Categorie");
         Utilisateur user3 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
 
-        return new ArticleVendu((int)counter.incrementAndGet(), String.format(template, nomArticle), "description", LocalDate.of(2020, 1, 8),LocalDate.of(2020, 4, 8),10, 0, "prepa vente", cat, user3);
+        return new ArticleVendu((int)counter.incrementAndGet(), String.format(template, nomArticle), "description", LocalDate.of(2020, 1, 8),LocalDate.of(2020, 4, 8),10, 0, cat, user3);
     }
 }
 
