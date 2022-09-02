@@ -6,10 +6,15 @@ import fr.bda.bdaencheres.bll.GestionUtilisateur;
 import fr.bda.bdaencheres.bo.ArticleVendu;
 import fr.bda.bdaencheres.bo.Categorie;
 import fr.bda.bdaencheres.bo.Utilisateur;
+import fr.bda.bdaencheres.dal.CategorieDAO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.context.annotation.ApplicationScope;
 
@@ -17,15 +22,19 @@ import java.time.LocalDate;
 import java.util.List;
 
 @SpringBootTest
-@ComponentScan({"fr.bda.bdaencheres.bll", "fr.bda.bdaencheres.dal" })
+@ComponentScan({"fr.bda.bdaencheres.bll", "fr.bda.bdaencheres.dal", "fr.bda.bdaencheres.bo" })
+@ContextConfiguration(classes={BdaEncheresApplication.class})
 
 public class testBLLDorian {
-    @Autowired
-    private GestionUtilisateur beanGestionUtilisateur;
+
     @Autowired
     private GestionArticle beanGestionArticle;
     @Autowired
+    private GestionUtilisateur beanGestionUtilisateur;
+
+    @Autowired
     private GestionCategorie beanGestionCategorie ;
+
 
 
     @Test

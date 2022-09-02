@@ -4,7 +4,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import fr.bda.bdaencheres.bo.Categorie;
@@ -12,9 +12,10 @@ import fr.bda.bdaencheres.dal.CategorieDAO;
 
 @Service
 public class GestionCategorie {
-	
+
 	@Autowired
 	CategorieDAO dao;
+
 	
 	public List<Categorie> listerCategorie() {
 
@@ -35,7 +36,7 @@ public class GestionCategorie {
 	    	
 	    	dao.delete(sup);
 	    }
-	    
+
 	    public List<Categorie> trier(String par){
 	    	
 	    	List<Categorie> liste = null;
@@ -52,6 +53,8 @@ public class GestionCategorie {
 	    	return liste;
 	    	
 	    }
-	
+
+
+
 
 }

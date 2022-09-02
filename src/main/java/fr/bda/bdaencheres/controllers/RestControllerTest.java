@@ -31,7 +31,7 @@ public class RestControllerTest {
     private GestionArticle gestionArticle;
 //int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, Categorie categorie, Utilisateur vendeur
     @GetMapping(value = "/articles",produces ="application/json")
-    @CrossOrigin(origins = "http://10.137.200.9/")
+    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:53928", "http://137.0.0.9"})
     public List<ArticleVendu> articlesList() {
         Categorie cat = new Categorie();
         cat.setLibelle("Categorie");

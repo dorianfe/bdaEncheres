@@ -3,6 +3,7 @@ package fr.bda.bdaencheres;
 import fr.bda.bdaencheres.bll.GestionCategorie;
 import fr.bda.bdaencheres.bo.Categorie;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -34,13 +35,13 @@ class testBllBella {
 		cat2.setLibelle("vetement");
 		cat3.setLibelle("Sport&Loisir");
 
-		beanGestionCategorie.ajouterCategorie(cat1);
+		/*beanGestionCategorie.ajouterCategorie(cat1);
 		beanGestionCategorie.ajouterCategorie(cat2);
 		beanGestionCategorie.ajouterCategorie(cat3);
-
+*/
 		//List<Categorie> categories = beanGestionCategorie.listerCategorie();
 		
-		List<Categorie> categories = beanGestionCategorie.trier("LD");
+		List<Categorie> categories = new ArrayList<>();//= beanGestionCategorie.trier("LD");
 
 		
 			System.out.println("oupss");

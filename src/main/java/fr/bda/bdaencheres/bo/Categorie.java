@@ -17,8 +17,7 @@ public class Categorie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int noCategorie;
     private String libelle;
-    
-       
+
 	public Categorie() {
 		
 	 }
