@@ -31,15 +31,15 @@ public class RestControllerTest {
     private GestionArticle gestionArticle;
 //int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres, int miseAPrix, int prixVente, Categorie categorie, Utilisateur vendeur
     @GetMapping(value = "/articles",produces ="application/json")
-    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:53928", "http://137.0.0.9"})
+    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:53928", "http://10.137.200.9:8080", "http://localhost:55753/", "http://localhost:4200/"})
     public List<ArticleVendu> articlesList() {
-        Categorie cat = new Categorie();
-        cat.setLibelle("Categorie");
-        Utilisateur use4 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
-        Utilisateur user3 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
+        //Categorie cat = new Categorie();
+        //cat.setLibelle("Categorie");
+        //Utilisateur use4 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
+        //Utilisateur user3 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
         List<ArticleVendu> listeArticles1 = gestionArticle.listerArticles();
         System.out.println("Quelqu'un s'est connecté");
-        return listeArticles1;//new ArrayList<>();//gestionArticle.listerArticles();
+        return listeArticles1;
     }
     //@GetMapping(value = "/articles",produces ="application/rtf")
     @CrossOrigin(origins = "http://localhost:4200/")
