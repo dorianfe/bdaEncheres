@@ -23,7 +23,7 @@ public class ArticleVendu {
 
     private ETATVENTE etatVente;
 
-    @ManyToOne(cascade=CascadeType.MERGE)
+    @ManyToOne
     private Categorie categorie;
 
     @ManyToOne(cascade=CascadeType.MERGE)
