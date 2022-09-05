@@ -129,6 +129,17 @@ public class Utilisateur {
 	
 	
 
+	/**
+	 * @param pseudo
+	 * @param motDePasse
+	 */
+	public Utilisateur(String pseudo, String motDePasse) {
+		this.pseudo = pseudo;
+		this.motDePasse = motDePasse;
+	}
+
+
+
 	public int getNoUtilisateur() {
 		return noUtilisateur;
 	}
