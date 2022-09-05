@@ -5,7 +5,9 @@ import fr.bda.bdaencheres.dal.UtilisateurDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GestionUtilisateur {
@@ -62,6 +64,24 @@ public class GestionUtilisateur {
     public List<Utilisateur> listerUtilisateursParNoUtilisateurDesc() {
 
         return dao.findByOrderByNoUtilisateurDesc();
+    }
+    
+    public Utilisateur  connexion (Utilisateur utilisateurPseudoMDP) {
+		for(Utilisateur utilisateur : listerUtilisateurs()) {
+			if(utilisateur.getPseudo().equals(utilisateurPseudoMDP.getPseudo())) {
+				if(utilisateur.getMotDePasse().equals(utilisateurPseudoMDP.getMotDePasse())) {
+					return utilisateur;
+				}
+				else {
+					//mot de passe incorrecte
+				}
+			}
+			else {
+				//pseudo incorrecte
+			}
+		}
+		return null;
+    	
     }
 
 

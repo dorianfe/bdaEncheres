@@ -15,6 +15,8 @@ public interface UtilisateurDAO extends JpaRepository<Utilisateur, Integer> {
 	List<Utilisateur> findByOrderByNoUtilisateurAsc();
 	List<Utilisateur> findByOrderByNoUtilisateurDesc();
 	
+	//Utilisateur connexion(String pseudo, String motDePasse);
+	
 	
    
     
