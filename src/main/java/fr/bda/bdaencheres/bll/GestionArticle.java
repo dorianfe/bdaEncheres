@@ -13,6 +13,7 @@ public class GestionArticle {
     @Autowired
     ArticleVenduDAO dao;
 
+
     public List<ArticleVendu> listerArticles() {
 
         return dao.findAll();

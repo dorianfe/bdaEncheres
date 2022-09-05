@@ -17,8 +17,7 @@ public class Categorie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int noCategorie;
     private String libelle;
-    
-       
+
 	public Categorie() {
 		
 	 }
@@ -28,11 +27,13 @@ public class Categorie {
 	 * @param libelle
 	 */
 	public Categorie(int noCategorie, String libelle) {
-		super();
 		this.noCategorie = noCategorie;
 		this.libelle = libelle;
 	}
 
+	public Categorie(String libelle) {
+		this.libelle = libelle;
+	}
 
 	public int getNoCategorie() {
 		return noCategorie;

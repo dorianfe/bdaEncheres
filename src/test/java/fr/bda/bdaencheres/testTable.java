@@ -28,6 +28,7 @@ class testTable {
 		
 		System.out.println(cat.toString());
 	}
+	/*
 	@Test
 	void testArticle() {
 		Utilisateur user1 = new Utilisateur("gzetsu", "tur", "ant", "mail", "8522", "54res rere", "79000", "niort", "zbeub", 25);
@@ -38,5 +39,7 @@ class testTable {
 		System.out.println(art.toString());
 		System.out.println(art2.toString());
 	}
+	*/
+
 
 }
