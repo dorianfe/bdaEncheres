@@ -19,8 +19,8 @@ public class GestionArticle {
         return dao.findAll();
     }
 
-    public void ajouterArticle(ArticleVendu article) {
-        dao.save(article);
+    public ArticleVendu ajouterArticle(ArticleVendu article) {
+       return dao.save(article);
     }
 
     public void supprimerArticle(ArticleVendu article) {
