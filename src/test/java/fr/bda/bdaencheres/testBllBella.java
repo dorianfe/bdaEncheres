@@ -35,13 +35,15 @@ class testBllBella {
 		cat2.setLibelle("vetement");
 		cat3.setLibelle("Sport&Loisir");
 
-		/*beanGestionCategorie.ajouterCategorie(cat1);
+		beanGestionCategorie.ajouterCategorie(cat1);
 		beanGestionCategorie.ajouterCategorie(cat2);
 		beanGestionCategorie.ajouterCategorie(cat3);
-*/
-		//List<Categorie> categories = beanGestionCategorie.listerCategorie();
+
+		List<Categorie> categories = beanGestionCategorie.listerCategorie();
 		
-		List<Categorie> categories = new ArrayList<>();//= beanGestionCategorie.trier("LD");
+		//List<Categorie> categories = new ArrayList<>();
+		//= beanGestionCategorie.trier("LD");*/
+		//List<Categorie> categories = new ArrayList<>();
 
 		
 			System.out.println("oupss");
@@ -49,8 +51,9 @@ class testBllBella {
 				
 				//beanGestionCategorie.supprimmerCategorie(categorie);
 				// System.out.println("**************************************************************************");
-				// System.out.println("aficher la liste des categories");
-			
+				System.out.println("aficher la liste des categories");
+				//beanGestionCategorie.trier("LD");
+			                
 				System.out.println(categorie.toString());
 			}
 
