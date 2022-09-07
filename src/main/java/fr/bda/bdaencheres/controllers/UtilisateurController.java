@@ -35,8 +35,12 @@ public class UtilisateurController {
 	
 	@PostMapping(value = "/creationUtilisateur", consumes = "application/json" )
 	public void ajouterUtilisateur(@RequestBody Utilisateur utilisateur) {
-		
-		gestionUtilisateur.ajouterUtilisateur(utilisateur);
+		if (gestionUtilisateur.verifCreationUtilisateur(utilisateur)){
+			gestionUtilisateur.ajouterUtilisateur(utilisateur);
+		}
+		else{
+
+		}
 	}
 	
 	@Autowired

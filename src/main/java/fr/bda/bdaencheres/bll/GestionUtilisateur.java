@@ -20,7 +20,13 @@ public class GestionUtilisateur {
     public void ajouterUtilisateur(Utilisateur utilisateur) {
     	dao.save(utilisateur);
     }
-    
+
+    public boolean verifCreationUtilisateur(Utilisateur utilisateur){
+        if (!utilisateur.getPseudo().isEmpty() && !utilisateur.getMotDePasse().isEmpty() && !utilisateur.getEmail().isEmpty() ){
+            return true;
+        }
+        return false;
+    }
     public void supprimerUtilisateur(Utilisateur utilisateur) {
     	dao.delete(utilisateur);
     }
